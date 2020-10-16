@@ -76,13 +76,17 @@ func add_subtract(n ...int) fn {
 
 They differ only in calling each other,
 and the operation invoked on their integer arguments.
+The actual alternating add/subtract happens in those arguments
+to "the other function":
+`add_subtract` calls `subtract_add` with an addition,
+`subtract_add` calls `add_subtract` with a subtraction.
 
-The type `fn` is important: `type fn func(...int) fn`
+The type of the value returned by `add_subtract` (and `subtract_add`),
+`fn`, is important: `type fn func(...int) fn`
 
 That is, objects of type `fn` are functions that can be invoked
 with zero or more integer arguments, and return an object of type `fn`.
-
-I figured this out by a lot of experimentation.
+I figured this out with a lot of experimentation.
 I am not a functional programming by nature.
 
 My thoughts and programming process went something like this:
