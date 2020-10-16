@@ -17,6 +17,9 @@ add_subtract(-5)(10)(3)(9) -> -5 + 10 - 3 + 9 -> 11
 ## Build and run
 
 ```sh
+$ cd $GOPATH/src
+$ git clone https://github.com/bediger4000/curried-arithmetic.git
+$ cd curried-arithmetic
 $ go build add_subtract.go
 $ ./add_subtract  -5 10 3 9
 (+) 11
@@ -105,3 +108,43 @@ and each one creates an anonymous function that invokes the other.
 
 I wrote a number of throwaway experimental programs to try various
 implementations of type `fn`.
+
+There's no good way to get a curried function to print out a final answer. 
+I did this by having the anonymous functions check argument count,
+and if invoked with no formal arguments, print the final arithmetic value calculated.
+
+As an interview question,
+this seems really hard.
+The interviewer should not expect much if whiteboarding.
+This problem is better-suited for a take-home problem.
+Even then, it's not clear to me what you'd get back.
+
+Based on the solutions I found around the web,
+the interviewer should be prepared for just about anything.
+I don't think this is a very good interview question for a number
+of reasons, including the obscurity of currying,
+and the difficulty of designing recursive types.
+These difficulties lead to the rainbow of solutions,
+most of which work around the recursive type.
+
+Once again, Daily Coding Problem gets the rating wrong,
+reinforcing my belief that a job candidate cannot feel bad about
+getting skunked by a programming problem posed by an interviewer.
+There's so much variation in the difficulty of the problems versus
+the ratings, that a candidate will regularly get baffled.
+
+## Other Solutions
+
+I found a [Go version](https://github.com/vaskoz/dailycodingproblem-go/tree/master/day363)
+that uses a struct with a method,
+seperating that object + method into the add_subtract "function".
+
+There's a [Medium article](https://medium.com/@Charles_Stover/variable-length-currying-in-javascript-7f7bb7bdad8b)
+discussing the problem.
+The author has the same problem with no good way to show you
+what's been calculated, much of the article exists to show a
+weird JavaScript way to get an answer.
+
+The Medium article references a [Reddit post](https://www.reddit.com/r/javascript/comments/9vxdkx/was_asked_this_js_interview_question_is_this_even/)
+that is supposedly the public source of this problem.
+The reddit thread has a number of... unusual... solutions.
