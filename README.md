@@ -87,7 +87,7 @@ The type of the value returned by `add_subtract` (and `subtract_add`),
 That is, objects of type `fn` are functions that can be invoked
 with zero or more integer arguments, and return an object of type `fn`.
 I figured this out with a lot of experimentation.
-I am not a functional programming by nature.
+I am not a functional programmer by nature.
 
 My thoughts and programming process went something like this:
 
